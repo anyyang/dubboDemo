@@ -7,11 +7,16 @@
       http://dubbo.apache.org/schema/dubbo
       http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
     <!-- 提供方应用信息，用于计算依赖关系   监控需要使用-->
-    <dubbo:application name="CustomerCenterOne"  />
+    <dubbo:application name="CustomerCenterOne"/>
 
-     <!--  将userService 注册到服务中心  dubbo 点对点的直连 -->
-    <dubbo:reference id="userService"
-                       interface="cn.liuyangjob.dubbo.service.UserService"
-                        registry="N/A"  url="dubbo://localhost:20880"/>
+    <!--  将userService 注册到服务中心  dubbo 点对点的直连 -->
+    <!--   <dubbo:reference id="userService"
+                          interface="cn.liuyangjob.dubbo.service.UserService"
+                           registry="N/A"  url="dubbo://localhost:20880"/>
+   -->
+    <!--  dubbo  暴露服务，将服务注册到zk上 -->
+    <dubbo:registry address="zookeeper://zk:2181" />
+    <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserService"/>
+
 
 </beans>

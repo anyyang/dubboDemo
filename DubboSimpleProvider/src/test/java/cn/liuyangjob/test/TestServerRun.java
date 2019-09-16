@@ -13,7 +13,7 @@ import java.io.IOException;
  * All Right Reserved by liuyang.
  **/
 
-public class TestRun {
+public class TestServerRun {
     public static void main(String args[]) throws IOException {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dubbo-provider.xml");
         ((ClassPathXmlApplicationContext)context).start();
