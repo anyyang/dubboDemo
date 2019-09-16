@@ -16,7 +16,7 @@
    -->
     <!--  dubbo  暴露服务，将服务注册到zk上 -->
     <dubbo:registry address="zookeeper://zk:2181" />
-    <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserService"/>
+    <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserService" id="userService"/>
 
 
 </beans>

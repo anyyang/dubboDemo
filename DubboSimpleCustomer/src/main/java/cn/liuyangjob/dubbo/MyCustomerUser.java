@@ -4,6 +4,8 @@ import cn.liuyangjob.dubbo.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.IOException;
+
 /**
  * Created by  liuyang
  * 2019/9/12    15:02
@@ -13,10 +15,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MyCustomerUser {
     
-    public static void main(String args[]){
+    public static void main(String args[]) throws IOException {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-dubbo-customer.xml");
         UserService  us = (UserService) ac.getBean("userService");
         System.out.println(us.sayHello("Tom "));
+        System.in.read();
     }
 
 }

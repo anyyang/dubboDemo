@@ -19,6 +19,7 @@ public class TestServerRun {
         ((ClassPathXmlApplicationContext)context).start();
         UserService  userService = (UserService) context.getBean("userService");
         System.out.println(userService.sayHello("liuyang"));
+        System.out.println(userService.sayHello("provider run success!"));
         System.in.read();
     }
 }
