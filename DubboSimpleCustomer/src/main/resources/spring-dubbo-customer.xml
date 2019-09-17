@@ -16,11 +16,18 @@
    -->
     <!--  dubbo  暴露服务，将服务注册到zk上 -->
     <!--  cache = true  提高消费者的响应速度，减轻提供者的压力。 基于结果的缓存，只需要更改消费者 -->
-    <dubbo:registry address="zookeeper://zk:2181" />
+    <dubbo:registry address="zookeeper://113.142.70.112:2181" />
     <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserService"
                      id="userService"
                      cache="true"
     />
 
 
+    <!--  方法缓存也成为服务缓存  -->
+    <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserMethodCacheService"
+                     id="userMethodCacheService"
+    >
+        <!--   仅仅对sayHello进行一个lru的缓存 lru:最近1000记录进行缓存  threadlocal：当前线程缓存。jcache：使用其他第三方缓存 -->
+        <dubbo:method name="sayHello" cache="lru"/>
+    </dubbo:reference>
 </beans>
