@@ -14,12 +14,29 @@ import java.io.IOException;
  **/
 
 public class MyCustomerUser {
-    
+    UserService us;
+
     public static void main(String args[]) throws IOException {
+        MyCustomerUser myuser = new MyCustomerUser();
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-dubbo-customer.xml");
-        UserService  us = (UserService) ac.getBean("userService");
-        System.out.println(us.sayHello("Tom "));
+        myuser.us = (UserService) ac.getBean("userService");
+        myuser.userProviderDubboCache();
         System.in.read();
     }
 
+    /**
+     * dubbo提供基于结果的消费者缓存，如果上次查过这条数据了，
+     * 下次查询的时候 直接使用缓存了
+     * 配置 只需要在xml配置中加入 cache=true
+     */
+    public void userProviderDubboCache() {
+        /* server端输出两次
+           liuyang调用sayHello！
+           lynx调用sayHello！
+         */
+        System.out.println(us.sayHello("liuyang"));
+        System.out.println(us.sayHello("lynx"));
+        System.out.println(us.sayHello("liuyang"));
+        System.out.println(us.sayHello("lynx"));
+    }
 }

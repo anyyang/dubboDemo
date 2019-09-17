@@ -16,10 +16,9 @@ import java.io.IOException;
 public class TestServerRun {
     public static void main(String args[]) throws IOException {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dubbo-provider.xml");
-        ((ClassPathXmlApplicationContext)context).start();
-        UserService  userService = (UserService) context.getBean("userService");
-        System.out.println(userService.sayHello("liuyang"));
-        System.out.println(userService.sayHello("provider run success!"));
+        ((ClassPathXmlApplicationContext) context).start();
+        UserService userService = (UserService) context.getBean("userService");
+        System.out.println("provider run success!");
         System.in.read();
     }
 }

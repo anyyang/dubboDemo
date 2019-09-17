@@ -15,8 +15,12 @@
                            registry="N/A"  url="dubbo://localhost:20880"/>
    -->
     <!--  dubbo  暴露服务，将服务注册到zk上 -->
+    <!--  cache = true  提高消费者的响应速度，减轻提供者的压力。 基于结果的缓存，只需要更改消费者 -->
     <dubbo:registry address="zookeeper://zk:2181" />
-    <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserService" id="userService"/>
+    <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserService"
+                     id="userService"
+                     cache="true"
+    />
 
 
 </beans>

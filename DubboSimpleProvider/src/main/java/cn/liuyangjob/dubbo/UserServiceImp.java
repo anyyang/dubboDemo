@@ -12,6 +12,7 @@ import cn.liuyangjob.dubbo.service.UserService;
 public class UserServiceImp implements UserService {
 
     public String sayHello(String name) {
+        System.out.println(name+"调用sayHello！");
         return name + "hello world";
     }
 }
