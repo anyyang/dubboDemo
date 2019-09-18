@@ -16,13 +16,18 @@
    -->
     <!--  dubbo  暴露服务，将服务注册到zk上 -->
     <!--  cache = true  提高消费者的响应速度，减轻提供者的压力。 基于结果的缓存，只需要更改消费者 -->
-    <dubbo:registry address="zookeeper://113.142.70.112:2181" />
+
+    <!--   单机配置
+   <dubbo:registry address="zookeeper://113.142.70.112:2181" />
+    -->
+    <!--  zookeeper 集群配置  -->
+    <dubbo:registry address="zookeeper://zkos1:2181?backup=zkos2:2181,zkos3:2181"/>
+    <!--   和上述配置相同 <dubbo:registry address="zookeeper://zkos1:2181,zkos2:2181,zkos3:2181" />  -->
+
     <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserService"
                      id="userService"
                      cache="true"
     />
-
-
     <!--  方法缓存也成为服务缓存  -->
     <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserMethodCacheService"
                      id="userMethodCacheService"

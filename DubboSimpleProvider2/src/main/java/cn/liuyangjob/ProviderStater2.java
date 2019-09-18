@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  *   Provider1 启动！
  */
-public class ProviderStater1 {
+public class ProviderStater2 {
     public static void main(String args[]) throws IOException {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dubbo-provider.xml");
         ((ClassPathXmlApplicationContext)context).start();
