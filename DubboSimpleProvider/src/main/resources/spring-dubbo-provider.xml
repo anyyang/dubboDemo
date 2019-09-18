@@ -23,9 +23,13 @@
     <dubbo:registry protocol="zookeeper" address="zookeeper://113.142.70.112:2181"/>
 
     <dubbo:service interface="cn.liuyangjob.dubbo.service.UserService"
-                   ref="userService"/>
+                   ref="userService"
+                   version="1.0.0"
+    />
     <dubbo:service interface="cn.liuyangjob.dubbo.service.UserMethodCacheService"
-                   ref="userMethodCacheService"/>
+                   ref="userMethodCacheService"
+                   version="1.0.0"
+    />
     <!-- 将bean纳入spring  -->
     <bean id="userService" class="cn.liuyangjob.dubbo.UserServiceImp"/>
     <bean id="userMethodCacheService" class="cn.liuyangjob.dubbo.UserMethodCacheServiceImp"/>

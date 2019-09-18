@@ -14,18 +14,22 @@
          <dubbo:service interface="cn.liuyangjob.dubbo.service.UserService" ref="userService"
                    registry="N/A"  />
       -->
-    <!-- 用dubbo协议在20880端口暴露服务
-         <dubbo:protocol name="dubbo" port="20880"/>
-    -->
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+         <dubbo:protocol name="dubbo" port="20881"/>
+
 
     <!--  使用zookeeper配置  -->
 
     <dubbo:registry protocol="zookeeper" address="zookeeper://113.142.70.112:2181"/>
 
     <dubbo:service interface="cn.liuyangjob.dubbo.service.UserService"
-                   ref="userService"/>
+                   ref="userService"
+                   version="2.0.0"
+    />
     <dubbo:service interface="cn.liuyangjob.dubbo.service.UserMethodCacheService"
-                   ref="userMethodCacheService"/>
+                   ref="userMethodCacheService"
+                   version="2.0.0"
+    />
     <!-- 将bean纳入spring  -->
     <bean id="userService" class="cn.liuyangjob.dubbo.UserServiceImp"/>
     <bean id="userMethodCacheService" class="cn.liuyangjob.dubbo.UserMethodCacheServiceImp"/>
