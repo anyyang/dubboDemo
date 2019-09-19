@@ -54,9 +54,12 @@ public class MyCustomerUser {
            liuyang调用sayHello！
            lynx调用sayHello！
          */
-        System.out.println(umcs.sayHello("liuyang"));
-        System.out.println(umcs.sayHelloWithOutCache("lynx"));
+        for(int i =1 ; i<20 ; i++){
+            System.out.println(umcs.sayHello("liuyang"));
+            System.out.println(umcs.sayHelloWithOutCache("lynx"));
+        }
         System.out.println(umcs.sayHello("liuyang"));
         System.out.println(umcs.sayHelloWithOutCache("lynx"));
     }
+
 }
