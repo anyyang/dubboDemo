@@ -11,8 +11,9 @@ import cn.liuyangjob.dubbo.service.UserService;
 
 public class UserServiceImp implements UserService {
 
+    @Override
     public String sayHello(String name) {
-        System.out.println(name+"调用sayHello！");
-        return name + "hello world";
+        System.out.println(name+"调用sayHello！2.0");
+        return name + "hello world2.0";
     }
 }

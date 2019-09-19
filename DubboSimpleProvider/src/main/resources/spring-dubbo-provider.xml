@@ -24,9 +24,13 @@
     <!-- zookeeper 集群配置 -->
     <dubbo:registry address="zookeeper://zkos1:2181?backup=zkos2:2181,zkos3:2181"/>
     <dubbo:service interface="cn.liuyangjob.dubbo.service.UserService"
-                   ref="userService"/>
+                   ref="userService"
+                   version="1.0.0"
+    />
     <dubbo:service interface="cn.liuyangjob.dubbo.service.UserMethodCacheService"
-                   ref="userMethodCacheService"/>
+                   ref="userMethodCacheService"
+                   version="1.0.0"
+    />
     <!-- 将bean纳入spring  -->
     <bean id="userService" class="cn.liuyangjob.dubbo.UserServiceImp"/>
     <bean id="userMethodCacheService" class="cn.liuyangjob.dubbo.UserMethodCacheServiceImp"/>
