@@ -21,13 +21,20 @@
    <dubbo:registry address="zookeeper://113.142.70.112:2181" />
     -->
     <!--  zookeeper 集群配置  -->
-    <dubbo:registry address="zookeeper://zkos1:2181?backup=zkos2:2181,zkos3:2181"/>
+    <dubbo:registry id="beijing" address="zookeeper://zkos1:2181?backup=zkos2:2181,zkos3:2181"/>
     <!--   和上述配置相同 <dubbo:registry address="zookeeper://zkos1:2181,zkos2:2181,zkos3:2181" />  -->
-
+    <dubbo:registry id="zhengzhou" address="zookeeper://zkos1:2181?backup=zkos2:2181,zkos3:2181"/>
     <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserService"
-                     id="userService"
+                     id="bjuserService"
                      version="2.0.0"
                      cache="true"
+                     registry="beijing"
+    />
+    <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserService"
+                     id="zzuserService"
+                     version="2.0.0"
+                     cache="true"
+                     registry="zhengzhou"
     />
     <!--  方法缓存也成为服务缓存  -->
     <dubbo:reference interface="cn.liuyangjob.dubbo.service.UserMethodCacheService"
