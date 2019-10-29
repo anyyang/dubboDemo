@@ -23,10 +23,10 @@ public class MyCustomerUser {
         myuser.us = (UserService) ac.getBean("userService");
         myuser.umcs = (UserMethodCacheService)ac.getBean("userMethodCacheService");
          //单个方法  服务缓存
-         myuser.userMethodProviderDubboCache();
+      //   myuser.userMethodProviderDubboCache();
 
          // 普通对象缓存
-         // myuser.userProviderDubboCache();
+        myuser.userProviderDubboCache();
         System.in.read();
     }
 
@@ -34,16 +34,19 @@ public class MyCustomerUser {
      * dubbo提供基于结果的消费者缓存，如果上次查过这条数据了，
      * 下次查询的时候 直接使用缓存了
      * 配置 只需要在xml配置中加入 cache=true
+     * lru 缓存默认最大值是1000次
      */
     public void userProviderDubboCache() {
         /* server端输出两次
            liuyang调用sayHello！
            lynx调用sayHello！
          */
-        System.out.println(us.sayHello("liuyang"));
-        System.out.println(us.sayHello("lynx"));
-        System.out.println(us.sayHello("liuyang"));
-        System.out.println(us.sayHello("lynx"));
+        for (int i = 0; i <1010 ; i++) {
+        System.out.println(us.sayHello("liuyang"+i));
+        System.out.println(us.sayHello("lynx"+i));
+        }
+        System.out.println(us.sayHello("liuyang1010"));
+        System.out.println(us.sayHello("lynx0"));
     }
 
     /**

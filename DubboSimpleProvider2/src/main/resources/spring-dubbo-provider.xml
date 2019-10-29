@@ -35,6 +35,7 @@
                    ref="userMethodCacheService"
                    version="2.0.0"
                    register="beijingCenter"
+                   cache="lru"
     />
     <!-- 将bean纳入spring  -->
     <bean id="userService" class="cn.liuyangjob.dubbo.UserServiceImp"/>
